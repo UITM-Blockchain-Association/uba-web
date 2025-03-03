@@ -1,3 +1,7 @@
+"use client"
+
+import React from "react"
+import Image from "next/image"
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 
 import {
@@ -27,7 +31,7 @@ interface MenuItem {
   title: string;
   url: string;
   description?: string;
-  icon?: JSX.Element;
+  icon?: React.ReactElement;
   items?: MenuItem[];
 }
 
@@ -151,7 +155,13 @@ const Navbar1 = ({
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
             <a href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="w-8" alt={logo.alt} />
+              <Image 
+                src={logo.src} 
+                width={32} 
+                height={32} 
+                className="w-8" 
+                alt={logo.alt} 
+              />
               <span className="text-lg font-semibold">{logo.title}</span>
             </a>
             <div className="flex items-center">
@@ -174,7 +184,13 @@ const Navbar1 = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <a href={logo.url} className="flex items-center gap-2">
-              <img src={logo.src} className="w-8" alt={logo.alt} />
+              <Image 
+                src={logo.src} 
+                width={32} 
+                height={32} 
+                className="w-8" 
+                alt={logo.alt} 
+              />
               <span className="text-lg font-semibold">{logo.title}</span>
             </a>
             <Sheet>
@@ -187,7 +203,13 @@ const Navbar1 = ({
                 <SheetHeader>
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center gap-2">
-                      <img src={logo.src} className="w-8" alt={logo.alt} />
+                      <Image 
+                        src={logo.src} 
+                        width={32} 
+                        height={32} 
+                        className="w-8" 
+                        alt={logo.alt} 
+                      />
                       <span className="text-lg font-semibold">
                         {logo.title}
                       </span>
