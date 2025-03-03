@@ -96,8 +96,8 @@ const demoData = {
   },
 };
 
-function Navbar() {
+function Navbar1Demo() {
   return <Navbar1 {...demoData} />;
 }
 
-export { Navbar };
+export { Navbar1Demo }; 
