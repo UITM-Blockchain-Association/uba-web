@@ -1,22 +1,13 @@
-import { FlickeringGrid } from "@/components/ui/flickering-grid";
+import { PageBackground } from "@/components/ui/page-background";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full">
-      {/* Flickering Grid Background */}
-      <div className="absolute inset-0 z-0">
-        <FlickeringGrid
-          className="w-full h-full"
-          squareSize={4}
-          gridGap={6}
-          color="#794199"
-          maxOpacity={0.3}
-          flickerChance={0.1}
-        />
+    <main className="relative flex min-h-screen flex-col items-center justify-center p-24">
+      <PageBackground />
+      <div className="z-10 relative">
+        <h1 className="text-4xl font-bold">Welcome to UBA Web</h1>
+        <p className="mt-4 text-xl">A fresh start for your project</p>
       </div>
-      
-      {/* Content */}
-     
-    </div>
-  );
+    </main>
+  )
 }
