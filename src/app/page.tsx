@@ -1,35 +1,22 @@
-"use client"
-
-import { useEffect, useState } from "react"
-import { useTheme } from "next-themes"
-
-import { Particles } from "@/components/ui/particles"
-import { TubelightNavbarWithRoutes } from "@/components/blocks/tubelight-navbar-with-routes"
+import { FlickeringGrid } from "@/components/ui/flickering-grid";
 
 export default function Home() {
-  const { theme } = useTheme()
-  const [color, setColor] = useState("#ffffff")
-
-  useEffect(() => {
-    setColor(theme === "dark" ? "#ffffff" : "#000000")
-  }, [theme])
-
   return (
-    <main className="relative min-h-screen">
-      <Particles
-        className="absolute inset-0 -z-10"
-        quantity={100}
-        ease={80}
-        color={color}
-        refresh
-      />
-      <TubelightNavbarWithRoutes />
-      <div className="container py-20 text-center">
-        <h1 className="text-4xl font-bold">Welcome to UBA Web</h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Your gateway to UBA&apos;s digital presence
-        </p>
+    <div className="relative min-h-screen w-full">
+      {/* Flickering Grid Background */}
+      <div className="absolute inset-0 z-0">
+        <FlickeringGrid
+          className="w-full h-full"
+          squareSize={4}
+          gridGap={6}
+          color="#794199"
+          maxOpacity={0.3}
+          flickerChance={0.1}
+        />
       </div>
-    </main>
-  )
+      
+      {/* Content */}
+     
+    </div>
+  );
 }
