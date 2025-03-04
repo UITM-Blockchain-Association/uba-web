@@ -4,8 +4,8 @@ import "./globals.css";
 // import { Navbar } from "@/components/core/Navbar";
 
 export const metadata: Metadata = {
-  title: "UBA Web",
-  description: "UBA Web Application",
+  title: "UiTM Blockchain Association",
+  description: "UBA",
 };
 
 export default function RootLayout({
