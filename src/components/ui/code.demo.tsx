@@ -1,46 +1,34 @@
-import { FlickeringGrid } from "@/components/ui/flickering-grid";
-import { BlurFade } from "@/components/ui/blur-fade"
-import { WordRotate } from "@/components/ui/word-rotate";
+"use client";
+import React, { useState } from "react";
+import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
+import { cn } from "@/lib/utils";
 
-export function FlickeringGridDemo() {
+export function NavbarDemo() {
   return (
-    <div className="relative h-[500px] rounded-lg w-full bg-background overflow-hidden border">
-      <FlickeringGrid
-        className="z-0 absolute inset-0 size-full"
-        squareSize={4}
-        gridGap={6}
-        color="#6B7280"
-        maxOpacity={0.5}
-        flickerChance={0.1}
-        height={800}
-        width={800}
-      />
+    <div className="relative w-full flex items-center justify-center">
+      <Navbar className="top-2" />
+      
     </div>
   );
 }
 
-export function BlurFadeTextDemo() {
+function Navbar({ className }: { className?: string }) {
+  const [active, setActive] = useState<string | null>(null);
   return (
-    <section id="header">
-      <BlurFade delay={0.25} inView>
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-          Hello World 👋
-        </h2>
-      </BlurFade>
-      <BlurFade delay={0.25 * 2} inView>
-        <span className="text-xl text-pretty tracking-tighter sm:text-3xl xl:text-4xl/none">
-          Nice to meet you
-        </span>
-      </BlurFade>
-    </section>
-  )
-}
-
-export function WordRotateDemo() {
-  return (
-    <WordRotate
-      className="text-4xl font-bold text-black dark:text-white"
-      words={["Word", "Rotate"]}
-    />
+    <div
+      className={cn("fixed top-10 inset-x-0 max-w-3xl mx-auto z-50", className)}
+    >
+      <Menu setActive={setActive}>
+        <MenuItem setActive={setActive} active={active} item="About">
+          <div className="flex flex-col space-y-2 text-base">
+            <HoveredLink href="/vision-and-mission">Vision and Mission</HoveredLink>
+            <HoveredLink href="/team">Our Team</HoveredLink>
+            <HoveredLink href="/historyclub">History</HoveredLink>
+          </div>
+        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="Events" href="/events" />
+        <MenuItem setActive={setActive} active={active} item="Join The Club" href="/" />
+      </Menu>
+    </div>
   );
 } 
