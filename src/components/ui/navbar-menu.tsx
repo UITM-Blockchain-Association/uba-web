@@ -119,11 +119,11 @@ export const Menu = ({
     <nav
       ref={menuRef}
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input px-6 py-4 md:px-10 md:py-5"
+      className="relative rounded-full bg-transparent dark:bg-transparent px-0 py-4 md:py-5 w-full"
     >
       <div className="flex items-center justify-between w-full">
         <motion.div 
-          className="flex items-center"
+          className="flex items-center pl-1 md:pl-3"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ 
@@ -135,8 +135,8 @@ export const Menu = ({
         >
           <Image
             src="/1.png"
-            width={40}
-            height={40}
+            width={45}
+            height={45}
             alt="Logo"
             className="rounded-full object-contain"
             priority
@@ -144,7 +144,7 @@ export const Menu = ({
         </motion.div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex justify-center space-x-10 flex-1 ml-10">
+        <div className="hidden md:flex justify-end space-x-8 flex-1 ml-auto pr-3">
           {children}
         </div>
 

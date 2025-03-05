@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import { Afacad } from "next/font/google";
 // import { Navbar } from "@/components/core/Navbar";
+
+const afacad = Afacad({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-afacad",
+});
 
 export const metadata: Metadata = {
   title: "UiTM Blockchain Association",
@@ -14,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={afacad.variable}>
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"

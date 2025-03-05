@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 export const TypewriterEffect = ({
   words,
@@ -26,7 +26,9 @@ export const TypewriterEffect = ({
 
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope);
-  useEffect(() => {
+  
+  // Use useCallback to memoize the animation function
+  const animateText = useCallback(() => {
     if (isInView) {
       animate(
         "span",
@@ -42,7 +44,11 @@ export const TypewriterEffect = ({
         }
       );
     }
-  }, [isInView]);
+  }, [isInView, animate]);
+  
+  useEffect(() => {
+    animateText();
+  }, [animateText]);
 
   const renderWords = () => {
     return (
@@ -150,9 +156,9 @@ export const TypewriterEffectSmooth = ({
           width: "fit-content",
         }}
         transition={{
-          duration: 2,
+          duration: 5,
           ease: "linear",
-          delay: 1,
+          delay: 2,
         }}
       >
         <div
@@ -169,16 +175,15 @@ export const TypewriterEffectSmooth = ({
           opacity: 0,
         }}
         animate={{
-          opacity: 1,
+          opacity: 4,
         }}
         transition={{
-          duration: 0.8,
-
+          duration: 1.2,
           repeat: Infinity,
           repeatType: "reverse",
         }}
         className={cn(
-          "block rounded-sm w-[4px] h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 bg-blue-500",
+          "block rounded-sm w-[4px] h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 bg-purple-500",
           cursorClassName
         )}
       ></motion.span>

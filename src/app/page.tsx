@@ -1,7 +1,6 @@
 import { NavbarDemo } from "@/components/ui/code.demo";
 import { TypewriterEffectSmoothDemo } from "@/components/ui/code.demo";
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
-import { AnimatedLogo } from "@/components/ui/animated-logo";
 import { cn } from "@/lib/utils";
 
 export default function Home() {
@@ -15,9 +14,6 @@ export default function Home() {
       <div className="relative flex flex-col items-center justify-start w-full min-h-screen pt-0 -mt-20 md:-mt-10">
         {/* Typewriter Effect */}
         <TypewriterEffectSmoothDemo />
-        
-        {/* Animated Logo */}
-        <AnimatedLogo />
         
         {/* Animated grid pattern background */}
         <AnimatedGridPattern
