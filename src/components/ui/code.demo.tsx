@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 export function NavbarDemo() {
   return (
@@ -29,6 +30,30 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="Events" href="/events" />
         <MenuItem setActive={setActive} active={active} item="Join The Club" href="/" />
       </Menu>
+    </div>
+  );
+}
+
+export function TypewriterEffectSmoothDemo() {
+  const words = [
+    {
+      text: "UiTM",
+    },
+    {
+      text: "Blockchain",
+    },
+    {
+      text: "Association",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+    
+  ];
+  return (
+    <div className="flex flex-col items-center justify-center h-[20rem] md:h-[30rem] mt-20 md:mt-0">
+      <p className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-700 dark:text-neutral-200 mb-4">
+        Learn , Explore , Create
+      </p>
+      <TypewriterEffectSmooth words={words} />
     </div>
   );
 } 
