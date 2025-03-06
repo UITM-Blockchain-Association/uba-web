@@ -20,13 +20,8 @@ function Navbar({ className }: { className?: string }) {
       className={cn("fixed top-10 inset-x-0 max-w-6xl mx-auto z-50 px-0 md:px-2", className)}
     >
       <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="About">
-          <div className="flex flex-col space-y-2 text-base">
-            <HoveredLink href="/vision-and-mission">Vision and Mission</HoveredLink>
-            <HoveredLink href="/team">Our Team</HoveredLink>
-            <HoveredLink href="/historyclub">History</HoveredLink>
-          </div>
-        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="About" href="/about" />
+        <MenuItem setActive={setActive} active={active} item="Our Team" href="/team" />
         <MenuItem setActive={setActive} active={active} item="Events" href="/events" />
         <MenuItem setActive={setActive} active={active} item="Join The Club" href="/" />
       </Menu>
