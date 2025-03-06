@@ -107,10 +107,11 @@ const Typewriter = ({
     texts,
     currentTextIndex,
     loop,
+    initialDelay
   ])
 
   return (
-    <div className={`inline whitespace-pre-wrap tracking-tight ${className}`}>
+    <span className={`inline whitespace-pre-wrap tracking-tight ${className}`}>
       <span>{displayText}</span>
       {showCursor && (
         <motion.span
@@ -128,7 +129,7 @@ const Typewriter = ({
           {cursorChar}
         </motion.span>
       )}
-    </div>
+    </span>
   )
 }
 

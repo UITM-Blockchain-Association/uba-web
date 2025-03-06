@@ -5,7 +5,7 @@ import { Typewriter } from "@/components/ui/typewriter"
 function Preview() {
   return (
     <div className="w-full md:text-4xl lg:text-5xl sm:text-3xl text-2xl flex flex-row items-start justify-start font-normal p-8 pl-16 -mt-32" style={{ fontFamily: 'HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif' }}>
-      <p className="whitespace-pre-wrap">
+      <div className="whitespace-pre-wrap">
         <span>{"The Future is  "}</span>
         <Typewriter
           text={[
@@ -20,7 +20,7 @@ function Preview() {
           deleteSpeed={80}
           cursorChar={"_"}
         />
-      </p>
+      </div>
     </div>
   )
 }
