@@ -14,38 +14,38 @@ export default function Home() {
         <NavbarDemo />
       </div>
       
-      <div className="relative flex flex-col items-start justify-start w-full pt-0 -mt-20 md:-mt-10">
+      <div className="relative flex flex-col items-start justify-start w-full pt-0 -mt-16 md:-mt-10">
         {/* Typewriter Effect */}
         <div className="w-full flex justify-center">
           <TypewriterEffectSmoothDemo />
         </div>
         
         {/* New Typewriter Component */}
-        <div className="w-full mt-8">
+        <div className="w-full mt-12 md:mt-8">
           <TypewriterDemo />
         </div>
         
         {/* Content Section  */}
-        <div className="w-full flex flex-col lg:flex-row mt-1 relative pb-[65vmin]">
+        <div className="w-full flex flex-col lg:flex-row mt-2 relative pb-[65vmin]">
           {/* Left Side - Text and Button */}
           <div className="w-full lg:w-1/2 flex flex-col">
             {/* Club Description Text */}
-            <div className="px-4 md:pl-16 md:pr-4 text-xl md:text-2xl text-white leading-relaxed text-justify font-medium max-w-2xl mx-auto md:mx-0">
+            <div className="px-4 pl-4 md:pl-16 md:pr-4 mt-1 md:mt-12 text-xl md:text-2xl text-white leading-relaxed text-justify font-medium max-w-2xl mx-auto md:mx-0">
               <p>
-              UiTM Blockchain Association's mission is to grow the student blockchain ecosystem and build a dynamic community where 
+              UiTM Blockchain Association&apos;s mission is to grow the student blockchain ecosystem and build a dynamic community where 
               academics, students, and professionals collaborate, innovate, 
               and leverage blockchain technology to create a positive impact.
               </p>
             </div>
             
             {/* Button */}
-            <div className="px-4 md:pl-16 mt-4 md:mt-6 mx-auto md:mx-0 flex justify-center md:justify-start w-full">
+            <div className="px-4 pl-4 md:pl-16 mt-4 md:mt-6 mx-auto md:mx-0 flex justify-center md:justify-start w-full">
               <MagneticNested />
             </div>
           </div>
           
           {/* Right Side - gambar */}
-          <div className="w-full lg:w-1/2 mt-12 lg:-mt-36 lg:absolute lg:right-0 lg:top-0 z-10">
+          <div className="w-full lg:w-1/2 mt-12 lg:-mt-20 lg:absolute lg:right-0 lg:top-0 z-10">
             <CarouselDemo />
           </div>
         </div>

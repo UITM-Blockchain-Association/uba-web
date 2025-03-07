@@ -27,7 +27,7 @@ export function CarouselDemo() {
     },
   ];
   return (
-    <div className="relative overflow-hidden w-full h-full py-10 scale-90 lg:origin-top-right origin-center flex justify-center lg:justify-end">
+    <div className="relative overflow-hidden w-full h-full py-10 scale-90 lg:scale-85 origin-center flex justify-center lg:justify-end">
       <Carousel slides={slideData} />
     </div>
   );

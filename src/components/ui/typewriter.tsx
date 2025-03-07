@@ -1,9 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { motion, Variants } from "framer-motion"
-
-import { cn } from "@/lib/utils"
 
 interface TypewriterProps {
   text: string | string[]
@@ -32,7 +30,8 @@ const Typewriter = ({
   loop = true,
   className,
   showCursor = true,
-  hideCursorOnType = false,
+  // hideCursorOnType is not used in the current implementation
+  // but kept in the interface for backward compatibility
   cursorChar = "|",
   cursorClassName = "ml-1",
   cursorAnimationVariants = {
@@ -49,66 +48,71 @@ const Typewriter = ({
   },
 }: TypewriterProps) => {
   const [displayText, setDisplayText] = useState("")
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [currentTextIndex, setCurrentTextIndex] = useState(0)
-
-  const texts = Array.isArray(text) ? text : [text]
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout
+    let currentIndex = 0
+    let direction = 'typing' // 'typing' or 'deleting'
+    let currentText = ""
+    let charIndex = 0
+    
+    // Move textArray inside the effect to avoid dependency issues
+    const textArray = Array.isArray(text) ? text : [text]
 
-    const currentText = texts[currentTextIndex]
+    const type = () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
 
-    const startTyping = () => {
-      if (isDeleting) {
-        if (displayText === "") {
-          setIsDeleting(false)
-          if (currentTextIndex === texts.length - 1 && !loop) {
-            return
-          }
-          setCurrentTextIndex((prev) => (prev + 1) % texts.length)
-          setCurrentIndex(0)
-          timeout = setTimeout(() => {}, waitTime)
-        } else {
-          timeout = setTimeout(() => {
-            setDisplayText((prev) => prev.slice(0, -1))
-          }, deleteSpeed)
+      const word = textArray[currentIndex]
+
+      if (direction === 'typing') {
+        // Still typing
+        if (charIndex < word.length) {
+          currentText = word.substring(0, charIndex + 1)
+          charIndex++
+          setDisplayText(currentText)
+          timeoutRef.current = setTimeout(type, speed)
+        } 
+        // Finished typing
+        else {
+          timeoutRef.current = setTimeout(() => {
+            direction = 'deleting'
+            type()
+          }, waitTime)
         }
       } else {
-        if (currentIndex < currentText.length) {
-          timeout = setTimeout(() => {
-            setDisplayText((prev) => prev + currentText[currentIndex])
-            setCurrentIndex((prev) => prev + 1)
-          }, speed)
-        } else if (texts.length > 1) {
-          timeout = setTimeout(() => {
-            setIsDeleting(true)
-          }, waitTime)
+        // Still deleting
+        if (charIndex > 0) {
+          charIndex--
+          currentText = word.substring(0, charIndex)
+          setDisplayText(currentText)
+          timeoutRef.current = setTimeout(type, deleteSpeed)
+        } 
+        // Finished deleting
+        else {
+          direction = 'typing'
+          currentIndex = (currentIndex + 1) % textArray.length
+          
+          // If we've gone through all words and loop is false, stop
+          if (currentIndex === 0 && !loop) {
+            return
+          }
+          
+          timeoutRef.current = setTimeout(type, speed)
         }
       }
     }
 
-    // Apply initial delay only at the start
-    if (currentIndex === 0 && !isDeleting && displayText === "") {
-      timeout = setTimeout(startTyping, initialDelay)
-    } else {
-      startTyping()
-    }
+    // Start the animation after initial delay
+    timeoutRef.current = setTimeout(type, initialDelay)
 
-    return () => clearTimeout(timeout)
-  }, [
-    currentIndex,
-    displayText,
-    isDeleting,
-    speed,
-    deleteSpeed,
-    waitTime,
-    texts,
-    currentTextIndex,
-    loop,
-    initialDelay
-  ])
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [text, speed, deleteSpeed, waitTime, loop, initialDelay])
 
   return (
     <span className={`inline whitespace-pre-wrap tracking-tight ${className}`}>
@@ -116,13 +120,7 @@ const Typewriter = ({
       {showCursor && (
         <motion.span
           variants={cursorAnimationVariants}
-          className={cn(
-            cursorClassName,
-            hideCursorOnType &&
-              (currentIndex < texts[currentTextIndex].length || isDeleting)
-              ? "hidden"
-              : ""
-          )}
+          className={cursorClassName}
           initial="initial"
           animate="animate"
         >

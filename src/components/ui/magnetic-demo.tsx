@@ -26,11 +26,12 @@ function MagneticNested() {
           <span className="flex items-center gap-2">
             <span>Join <span className="text-[#17D4E9]">UBA</span></span>
             <Image 
-              src="/Game Wow GIF.gif" 
+              src="/wow.gif" 
               alt="Wow" 
               width={20} 
               height={20} 
               className="rounded-full object-cover"
+              unoptimized
             />
           </span>
         </Magnetic>

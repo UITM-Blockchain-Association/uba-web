@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, useCallback } from "react";
+import React, { useEffect, useId, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -35,12 +35,13 @@ export function AnimatedGridPattern({
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  function getPos() {
+  // Define getPos at component scope so it can be used in multiple places
+  const getPos = useCallback(() => {
     return [
       Math.floor((Math.random() * dimensions.width) / width),
       Math.floor((Math.random() * dimensions.height) / height),
     ];
-  }
+  }, [dimensions, width, height]);
 
   // Memoize the generateSquares function with useCallback
   const generateSquares = useCallback((count: number) => {
@@ -48,7 +49,7 @@ export function AnimatedGridPattern({
       id: i,
       pos: getPos(),
     }));
-  }, [dimensions, width, height]);
+  }, [getPos]);
 
   const [squares, setSquares] = useState(() => generateSquares(numSquares));
 

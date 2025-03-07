@@ -133,14 +133,17 @@ export const Menu = ({
           }}
           whileHover={{ scale: 1.05 }}
         >
-          <Image
-            src="/1.png"
-            width={45}
-            height={45}
-            alt="Logo"
-            className="rounded-full object-contain"
-            priority
-          />
+          {/* Logo dekat navbar */}
+          <Link href="/" aria-label="Go to home page">
+            <Image
+              src="/1.png"
+              width={43}
+              height={43}
+              alt="Logo"
+              className="rounded-full object-contain cursor-pointer"
+              priority
+            />
+          </Link>
         </motion.div>
 
         {/* Desktop Menu */}
