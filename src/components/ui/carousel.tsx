@@ -159,30 +159,79 @@ interface CarouselProps {
 
 export function Carousel({ slides }: CarouselProps) {
   const [current, setCurrent] = useState(0);
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const id = useId();
 
-  const handlePreviousClick = () => {
-    const previous = current - 1;
-    setCurrent(previous < 0 ? slides.length - 1 : previous);
-  };
+  // Auto-slide functionality
+  useEffect(() => {
+    const nextSlide = () => {
+      setCurrent((prevCurrent) => (prevCurrent + 1) % slides.length);
+    };
 
-  const handleNextClick = () => {
-    const next = current + 1;
-    setCurrent(next === slides.length ? 0 : next);
-  };
+    // Set up the interval for auto-sliding
+    autoplayRef.current = setInterval(nextSlide, 4000);
+
+    // Clean up the interval when the component unmounts
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+      }
+    };
+  }, [slides.length]);
 
   const handleSlideClick = (index: number) => {
     if (current !== index) {
       setCurrent(index);
+      
+      // Reset the auto-slide timer when a slide is clicked
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+        autoplayRef.current = setInterval(() => {
+          setCurrent((prevCurrent) => (prevCurrent + 1) % slides.length);
+        }, 4000);
+      }
     }
   };
-
-  const id = useId();
 
   return (
     <div
       className="relative w-[60vmin] h-[60vmin] lg:w-[55vmin] lg:h-[55vmin] mx-auto"
       aria-labelledby={`carousel-heading-${id}`}
     >
+      <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex justify-between z-10 pointer-events-none">
+        <div className="pointer-events-auto">
+          <CarouselControl
+            type="previous"
+            title="Previous slide"
+            handleClick={() => {
+              setCurrent((prevCurrent) => (prevCurrent - 1 + slides.length) % slides.length);
+              // Reset timer on manual navigation
+              if (autoplayRef.current) {
+                clearInterval(autoplayRef.current);
+                autoplayRef.current = setInterval(() => {
+                  setCurrent((prevCurrent) => (prevCurrent + 1) % slides.length);
+                }, 4000);
+              }
+            }}
+          />
+        </div>
+        <div className="pointer-events-auto">
+          <CarouselControl
+            type="next"
+            title="Next slide"
+            handleClick={() => {
+              setCurrent((prevCurrent) => (prevCurrent + 1) % slides.length);
+              // Reset timer on manual navigation
+              if (autoplayRef.current) {
+                clearInterval(autoplayRef.current);
+                autoplayRef.current = setInterval(() => {
+                  setCurrent((prevCurrent) => (prevCurrent + 1) % slides.length);
+                }, 4000);
+              }
+            }}
+          />
+        </div>
+      </div>
       <ul
         className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
         style={{
@@ -199,20 +248,6 @@ export function Carousel({ slides }: CarouselProps) {
           />
         ))}
       </ul>
-
-      <div className="absolute flex justify-center w-full top-[calc(100%+0.5rem)]">
-        <CarouselControl
-          type="previous"
-          title="Go to previous slide"
-          handleClick={handlePreviousClick}
-        />
-
-        <CarouselControl
-          type="next"
-          title="Go to next slide"
-          handleClick={handleNextClick}
-        />
-      </div>
     </div>
   );
 } 

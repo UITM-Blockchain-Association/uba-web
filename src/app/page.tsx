@@ -32,7 +32,7 @@ export default function Home() {
             {/* Club Description Text */}
             <div className="px-4 pl-4 md:pl-16 md:pr-4 mt-1 md:mt-12 text-xl md:text-2xl text-white leading-relaxed text-justify font-medium max-w-2xl mx-auto md:mx-0">
               <p>
-              UiTM Blockchain Association&apos;s mission is to grow the student blockchain ecosystem and build a dynamic community where 
+              UiTM Blockchain Association&apos;s (UBA) mission is to grow the student blockchain ecosystem and build a dynamic community where 
               academics, students, and professionals collaborate, innovate, 
               and leverage blockchain technology to create a positive impact.
               </p>
@@ -45,7 +45,7 @@ export default function Home() {
           </div>
           
           {/* Right Side - gambar */}
-          <div className="w-full lg:w-1/2 mt-12 lg:-mt-20 lg:absolute lg:right-0 lg:top-0 z-10">
+          <div className="w-full lg:w-1/2 mt-12 lg:-mt-30 lg:absolute lg:right-0 lg:top-0 z-10">
             <CarouselDemo />
           </div>
         </div>
