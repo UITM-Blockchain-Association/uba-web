@@ -1,10 +1,8 @@
 import { NavbarDemo } from "@/components/ui/code.demo";
 import { TypewriterEffectSmoothDemo } from "@/components/ui/code.demo";
-import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
-import { cn } from "@/lib/utils";
 import { Preview as TypewriterDemo } from "@/components/ui/typewriter-demo";
 import { MagneticNested } from "@/components/ui/magnetic-demo";
-import { CarouselDemo } from "@/components/ui/carousel-demo";
+import { FloatingImage } from "@/components/ui/floating-image";
 
 export default function Home() {
   return (
@@ -21,47 +19,34 @@ export default function Home() {
         </div>
         
         {/* New Typewriter Component */}
-        <div className="w-full mt-12 md:mt-8">
+        <div className="w-full mt-8 sm:mt-10 md:mt-8">
           <TypewriterDemo />
         </div>
         
-        {/* Content Section  */}
-        <div className="w-full flex flex-col lg:flex-row mt-2 relative pb-[65vmin]">
+        {/* Content Section */}
+        <div className="w-full flex flex-col lg:flex-row mt-2 relative pb-[20vmin] sm:pb-[25vmin] md:pb-[30vmin] lg:pb-[35vmin]">
           {/* Left Side - Text and Button */}
           <div className="w-full lg:w-1/2 flex flex-col">
             {/* Club Description Text */}
-            <div className="px-4 pl-4 md:pl-16 md:pr-4 mt-1 md:mt-12 text-xl md:text-2xl text-white leading-relaxed text-justify font-medium max-w-2xl mx-auto md:mx-0">
+            <div className="px-4 sm:px-6 md:px-8 lg:pl-16 lg:pr-4 mt-1 sm:mt-4 md:mt-8 lg:mt-12 text-lg sm:text-xl md:text-2xl text-white leading-relaxed text-justify font-medium max-w-2xl mx-auto lg:mx-0">
               <p>
-              UiTM Blockchain Association&apos;s (UBA) mission is to grow the student blockchain ecosystem and build a dynamic community where 
-              academics, students, and professionals collaborate, innovate, 
-              and leverage blockchain technology to create a positive impact.
+                UiTM Blockchain Association&apos;s (UBA) mission is to grow the student blockchain ecosystem and build a dynamic community where 
+                academics, students, and professionals collaborate, innovate, 
+                and leverage blockchain technology to create a positive impact.
               </p>
             </div>
             
             {/* Button */}
-            <div className="px-4 pl-4 md:pl-16 mt-4 md:mt-6 mx-auto md:mx-0 flex justify-center md:justify-start w-full">
+            <div className="px-4 sm:px-6 md:px-8 lg:pl-16 mt-4 sm:mt-6 md:mt-8 mx-auto lg:mx-0 flex justify-center lg:justify-start w-full">
               <MagneticNested />
             </div>
           </div>
           
           {/* Right Side - gambar */}
-          <div className="w-full lg:w-1/2 mt-12 lg:-mt-30 lg:absolute lg:right-0 lg:top-0 z-10">
-            <CarouselDemo />
+          <div className="w-full lg:w-1/2 mt-4 sm:mt-6 md:mt-8 lg:-mt-8 xl:-mt-12 2xl:-mt-16 lg:absolute lg:right-0 lg:top-0 z-10">
+            <FloatingImage />
           </div>
         </div>
-        
-        {/* Animated grid pattern background */}
-        <AnimatedGridPattern
-          numSquares={10}
-          maxOpacity={0.15}
-          duration={1}
-          repeatDelay={0.1}
-          className={cn(
-            "[mask-image:radial-gradient(1200px_circle_at_center,white,transparent)]",
-            "inset-x-0 inset-y-0 h-full w-full scale-125 fill-[#EC0AF0]/20 stroke-[#EC0AF0]/10",
-            "fixed"
-          )}
-        />
       </div>
     </main>
   );

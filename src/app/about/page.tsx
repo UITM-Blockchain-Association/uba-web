@@ -1,6 +1,4 @@
 import { NavbarDemo } from "@/components/ui/code.demo";
-import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
-import { cn } from "@/lib/utils";
 
 export default function AboutPage() {
   return (
@@ -24,19 +22,6 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-        
-        {/* Animated grid pattern background */}
-        <AnimatedGridPattern
-          numSquares={10}
-          maxOpacity={0.15}
-          duration={1}
-          repeatDelay={0.1}
-          className={cn(
-            "[mask-image:radial-gradient(1200px_circle_at_center,white,transparent)]",
-            "inset-x-0 inset-y-0 h-full w-full scale-125 fill-[#EC0AF0]/20 stroke-[#EC0AF0]/10",
-            "fixed"
-          )}
-        />
       </div>
     </main>
   );
