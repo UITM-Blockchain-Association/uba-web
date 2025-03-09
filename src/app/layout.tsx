@@ -30,7 +30,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {/* <Navbar /> */}
-          {children}
+          <div className="animate-fade-in opacity-0">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

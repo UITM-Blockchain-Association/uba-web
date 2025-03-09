@@ -7,7 +7,7 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 export function NavbarDemo() {
   return (
     <div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-2" />
+      <Navbar className="top-0" />
       
     </div>
   );
@@ -17,7 +17,7 @@ function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-6xl mx-auto z-50 px-0 md:px-2", className)}
+      className={cn("fixed top-0 inset-x-0 w-full mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="About" href="/about" />

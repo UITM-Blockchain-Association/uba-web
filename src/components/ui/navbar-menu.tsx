@@ -119,9 +119,9 @@ export const Menu = ({
     <nav
       ref={menuRef}
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full bg-transparent dark:bg-transparent px-0 py-4 md:py-5 w-full"
+      className="relative bg-black dark:bg-black py-3 w-full"
     >
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-center justify-between w-full px-4 md:px-8 max-w-7xl mx-auto">
         <motion.div 
           className="flex items-center pl-1 md:pl-3"
           initial={{ opacity: 0, x: -20 }}
