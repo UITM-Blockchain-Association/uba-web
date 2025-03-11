@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { Afacad } from "next/font/google";
+import { Afacad, Montserrat } from "next/font/google";
 // import { Navbar } from "@/components/core/Navbar";
 
 const afacad = Afacad({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-afacad",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={afacad.variable}>
+    <html lang="en" suppressHydrationWarning className={`${afacad.variable} ${montserrat.variable}`}>
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"

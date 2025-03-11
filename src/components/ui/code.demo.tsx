@@ -23,7 +23,7 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="About" href="/about" />
         <MenuItem setActive={setActive} active={active} item="Our Team" href="/team" />
         <MenuItem setActive={setActive} active={active} item="Events" href="/events" />
-        <MenuItem setActive={setActive} active={active} item="Join The Club" href="/" />
+        <MenuItem setActive={setActive} active={active} item="Our Community" href="/" className="bg-[#F750F5] text-white rounded-full px-4 py-1" />
       </Menu>
     </div>
   );
@@ -39,16 +39,16 @@ export function TypewriterEffectSmoothDemo() {
     },
     {
       text: "Association",
-      className: "text-[#0CD8B6] dark:text-[#0CD8B6]",
+      className: "text-[#F750F5] dark:text-[#F750F5]",
     },
     
   ];
   return (
-    <div className="flex flex-col items-center justify-center h-[20rem] md:h-[30rem] mt-20 md:mt-0">
-      <p className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-700 dark:text-neutral-200 mb-4">
+    <div className="flex flex-col items-center justify-center h-[20rem] md:h-[25rem] mt-20 md:-mt-1">
+      <TypewriterEffectSmooth words={words} />
+      <p className="text-lg sm:text-xl md:text-2xl font-light text-neutral-700 dark:text-neutral-200 mt-1 font-montserrat">
         Learn • Explore • Create
       </p>
-      <TypewriterEffectSmooth words={words} />
     </div>
   );
 } 

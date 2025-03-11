@@ -19,19 +19,21 @@ export const MenuItem = ({
   item,
   children,
   href,
+  className,
 }: {
   setActive: (item: string | null) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
   href?: string;
+  className?: string;
 }) => {
   const content = (
     <motion.p
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.3 }}
-      className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white font-medium text-base md:text-lg px-2"
+      className={`cursor-pointer text-black hover:opacity-[0.9] dark:text-white font-medium text-base md:text-lg px-2 ${className || ''}`}
     >
       {item}
     </motion.p>
@@ -119,7 +121,7 @@ export const Menu = ({
     <nav
       ref={menuRef}
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative bg-black dark:bg-black py-3 w-full"
+      className="relative py-3 w-full"
     >
       <div className="flex items-center justify-between w-full px-4 md:px-8 max-w-7xl mx-auto">
         <motion.div 
