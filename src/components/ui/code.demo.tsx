@@ -23,7 +23,7 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="About" href="/about" />
         <MenuItem setActive={setActive} active={active} item="Our Team" href="/team" />
         <MenuItem setActive={setActive} active={active} item="Events" href="/events" />
-        <MenuItem setActive={setActive} active={active} item="Our Community" href="/" className="bg-[#F750F5] text-white rounded-full px-4 py-1" />
+        <MenuItem setActive={setActive} active={active} item="Our Community" href="/" className="bg-[#4FB091] text-white rounded-full px-4 py-1" />
       </Menu>
     </div>
   );
@@ -39,7 +39,7 @@ export function TypewriterEffectSmoothDemo() {
     },
     {
       text: "Association",
-      className: "text-[#F750F5] dark:text-[#F750F5]",
+      className: "text-[#4FB091] dark:text-[#4FB091]",
     },
     
   ];

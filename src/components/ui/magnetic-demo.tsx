@@ -24,7 +24,7 @@ function MagneticNested() {
           range={200}
         >
           <span className="flex items-center gap-2">
-            <span>Join <span className="text-[#17D4E9]">UBA</span></span>
+            <span>Join <span className="text-[#e966d7]">UBA</span></span>
             <Image 
               src="/wow.gif" 
               alt="Wow" 
