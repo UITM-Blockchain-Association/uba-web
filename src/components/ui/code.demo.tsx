@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { BentoGridGalleryDemo } from "@/components/ui/bento-gallery-demo";
+
+export { BentoGridGalleryDemo };
 
 export function NavbarDemo() {
   return (
@@ -23,7 +26,7 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="About" href="/about" />
         <MenuItem setActive={setActive} active={active} item="Our Team" href="/team" />
         <MenuItem setActive={setActive} active={active} item="Events" href="/events" />
-        <MenuItem setActive={setActive} active={active} item="Our Community" href="/" className="bg-[#4FB091] text-white rounded-full px-4 py-1" />
+        <MenuItem setActive={setActive} active={active} item="Our Community" href="/" className="bg-[#4B9EE4] text-white rounded-full px-4 py-1" />
       </Menu>
     </div>
   );
@@ -39,7 +42,7 @@ export function TypewriterEffectSmoothDemo() {
     },
     {
       text: "Association",
-      className: "text-[#4FB091] dark:text-[#4FB091]",
+      className: "text-[#4B9EE4] dark:text-[#4B9EE4]",
     },
     
   ];

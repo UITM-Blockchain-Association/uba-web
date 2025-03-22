@@ -83,21 +83,21 @@ interface StatsCardProps {
 
 const StatsCard = ({ className }: StatsCardProps) => {
   return (
-    <div className="absolute left-0 right-0 w-full animate-fade-in opacity-0 stagger-delay-5 px-0 -mt-16 sm:-mt-24 md:-mt-40 lg:-mt-56 z-10">
-      <Card className={cn("bg-black/30 backdrop-blur-md border border-white/10 text-white w-full shadow-lg rounded-none sm:rounded-lg", className)}>
-        <CardContent className="py-4 px-4 sm:px-6 md:px-8 flex justify-center items-center">
+    <div className="w-full">
+      <Card className={cn("bg-black/30 backdrop-blur-md border border-white/10 text-white w-full shadow-xl rounded-xl overflow-hidden", className)}>
+        <CardContent className="py-6 px-4 sm:px-6 md:px-8 flex justify-center items-center">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 md:gap-8 lg:gap-16 w-full">
             <div className="flex flex-col items-center text-center">
-              <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#ce50df]">3+ years</p>
-              <p className="text-sm sm:text-base md:text-lg text-white/70 mt-1 sm:mt-2">Since we began our journey</p>
+              <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#4B9EE4]">3+ years</p>
+              <p className="text-sm sm:text-base md:text-lg text-white/80 mt-1 sm:mt-2">Since we began our journey</p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#ce50df]">100+</p>
-              <p className="text-sm sm:text-base md:text-lg text-white/70 mt-1 sm:mt-2">Active Members</p>
+              <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#4B9EE4]">100+</p>
+              <p className="text-sm sm:text-base md:text-lg text-white/80 mt-1 sm:mt-2">Active Members</p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#ce50df]">20+</p>
-              <p className="text-sm sm:text-base md:text-lg text-white/70 mt-1 sm:mt-2">Partners</p>
+              <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#4B9EE4]">20+</p>
+              <p className="text-sm sm:text-base md:text-lg text-white/80 mt-1 sm:mt-2">Partners</p>
             </div>
           </div>
         </CardContent>
