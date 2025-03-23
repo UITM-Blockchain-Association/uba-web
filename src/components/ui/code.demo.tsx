@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { BentoGridGalleryDemo } from "@/components/ui/bento-gallery-demo";
 
-export { BentoGridGalleryDemo };
+
+
 
 export function NavbarDemo() {
   return (

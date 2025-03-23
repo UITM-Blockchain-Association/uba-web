@@ -1,6 +1,5 @@
 import { NavbarDemo } from "@/components/ui/code.demo";
 import { TypewriterEffectSmoothDemo } from "@/components/ui/code.demo";
-import { BentoGridGalleryDemo } from "@/components/ui/code.demo";
 import { BackgroundTheme } from "@/components/ui/background-theme";
 import { MagneticNested } from "@/components/ui/magnetic-demo";
 import { FloatingImage } from "@/components/ui/floating-image";
@@ -58,12 +57,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Bento Grid Gallery - Centered with proper spacing */}
-          <div className="w-full flex justify-center mt-4 sm:mt-6 md:mt-8 mb-12 sm:mb-16 md:mb-20 animate-fade-in opacity-0 stagger-delay-5">
-            <div className="max-w-5xl w-full">
-              <BentoGridGalleryDemo />
-            </div>
-          </div>
+         
         </div>
       </main>
     </BackgroundTheme>

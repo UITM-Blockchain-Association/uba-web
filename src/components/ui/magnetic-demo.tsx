@@ -1,7 +1,6 @@
 'use client';
 
 import { Magnetic } from '@/components/ui/magnetic';
-import Image from 'next/image';
 
 function MagneticNested() {
   const springOptions = { bounce: 0.1 };
