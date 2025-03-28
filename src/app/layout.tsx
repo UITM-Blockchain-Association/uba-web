@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Afacad, Montserrat } from "next/font/google";
+import NavHeader from "@/components/core/nav-header";
 // import { Navbar } from "@/components/core/Navbar";
 
 const afacad = Afacad({
@@ -35,6 +36,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <div className="fixed top-4 left-0 right-0 z-50">
+            <NavHeader />
+          </div>
           {/* <Navbar /> */}
           <div className="animate-fade-in opacity-0">
             {children}
