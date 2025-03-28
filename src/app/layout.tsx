@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Afacad, Montserrat } from "next/font/google";
 import NavHeader from "@/components/core/nav-header";
+import LiquidChrome from "@/components/ui/background-theme";
 // import { Navbar } from "@/components/core/Navbar";
 
 const afacad = Afacad({
@@ -36,12 +37,25 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="fixed top-4 left-0 right-0 z-50">
-            <NavHeader />
+          {/* Background Layer */}
+          <div className="fixed inset-0 z-0">
+            <LiquidChrome
+              baseColor={[0, 0, 0.03]}
+              speed={0.5}
+              amplitude={0.4}
+              interactive={true}
+            />
           </div>
-          {/* <Navbar /> */}
-          <div className="animate-fade-in opacity-0">
-            {children}
+          
+          {/* Content Layer */}
+          <div className="relative z-10">
+            <div className="fixed top-4 left-0 right-0 z-50">
+              <NavHeader />
+            </div>
+            {/* <Navbar /> */}
+            <div className="animate-fade-in opacity-0">
+              {children}
+            </div>
           </div>
         </ThemeProvider>
       </body>
