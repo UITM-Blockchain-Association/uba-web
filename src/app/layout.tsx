@@ -3,7 +3,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Afacad, Montserrat } from "next/font/google";
 import NavHeader from "@/components/core/nav-header";
-import LiquidChrome from "@/components/ui/background-theme";
+
 // import { Navbar } from "@/components/core/Navbar";
 
 const afacad = Afacad({
@@ -37,15 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Background Layer */}
-          <div className="fixed inset-0 z-0">
-            <LiquidChrome
-              baseColor={[0.001, 0, 0.03]}
-              speed={0.5}
-              amplitude={0.1}
-              interactive={true}
-            />
-          </div>
+       
           
           {/* Content Layer */}
           <div className="relative z-10">

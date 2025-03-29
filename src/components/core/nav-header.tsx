@@ -35,7 +35,7 @@ function NavHeader() {
   };
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 bg-black/80 backdrop-blur-sm before:absolute before:inset-0 before:z-[-1] before:opacity-50 before:[background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')]">
+    <nav className="fixed left-0 right-0 top-0 z-50 backdrop-blur-sm before:absolute before:inset-0 before:z-[-1] before:opacity-50 before:[background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')]">
       <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8">
         <Link href="/" className="relative h-12 w-12 shrink-0 sm:h-16 md:h-20 sm:w-16 md:w-20">
           <motion.div
@@ -68,7 +68,7 @@ function NavHeader() {
           className="relative hidden items-center justify-center space-x-2 md:space-x-4 md:flex"
           onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
         >
-          <Tab href="/about" setPosition={setPosition}>About</Tab>
+          
           <Tab href="/events" setPosition={setPosition}>Events</Tab>
           <Tab href="/team" setPosition={setPosition}>Team</Tab>
           <Tab href="https://t.me/+N8jDDGAYQq5mMWU1" setPosition={setPosition}>Our Community</Tab>
@@ -110,7 +110,7 @@ function NavHeader() {
             className="md:hidden overflow-hidden border-t border-white/10"
           >
             <motion.ul
-              className="flex flex-col divide-y divide-white/10 bg-black/90 backdrop-blur-sm"
+              className="flex flex-col divide-y divide-white/10 backdrop-blur-sm"
               initial="closed"
               animate="open"
               exit="closed"

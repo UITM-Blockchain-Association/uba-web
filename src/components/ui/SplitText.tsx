@@ -2,7 +2,7 @@
 
 import { useSprings, animated, SpringConfig, easings } from '@react-spring/web';
 import { useEffect, useRef, useState } from 'react';
-import type { AnimatedProps } from '@react-spring/web';
+
 
 interface SplitTextProps {
     text?: string;
@@ -110,7 +110,7 @@ const SplitText: React.FC<SplitTextProps> = ({
         letters.map((_, i) => ({
             from: finalConfig.animationFrom,
             to: inView
-                ? async (next: (props: any) => Promise<void>) => {
+                ? async (next: (props: { opacity: number; transform: string }) => Promise<void>) => {
                     await next(finalConfig.animationTo);
                     animatedCount.current += 1;
                     if (animatedCount.current === letters.length && onLetterAnimationComplete) {

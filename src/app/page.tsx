@@ -1,32 +1,54 @@
 "use client";
 
-import SplitText from "@/components/ui/SplitText";
-import ShinyButton from "@/components/ui/ShinyButton";
+import { useEffect, useState } from "react";
+import HeroBackground from "@/components/home/HeroBackground";
+import HeroTitle from "@/components/home/HeroTitle";
+import ScrollIndicator from "@/components/home/ScrollIndicator";
+import AboutSection from "@/components/home/AboutSection";
 
-// Home page component
+// Main Home component
 export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center pt-24 sm:pt-32 md:pt-40 lg:pt-48 px-4 sm:px-6 md:px-12 lg:px-24">
-      <div className="w-full flex flex-col md:flex-row md:justify-between md:items-start gap-8 md:gap-4">
-        <div className="w-full md:max-w-2xl lg:max-w-4xl space-y-4 md:space-y-6">
-          <SplitText text="UiTM Blockchain Association" variant="title" />
-          <SplitText text="Empowering Students to Build The Future of Blockchain" variant="subtitle" />
+    <main className="flex flex-col items-center justify-between min-h-screen">
+      {/* Hero section */}
+      <div className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24">
+        <HeroBackground scrollY={scrollY} />
+        
+        <div className="w-full flex flex-col items-center text-center gap-8 md:gap-10">
+          <HeroTitle />
+          
+          {/* Call to action buttons - Commented out for now */}
+          {/* <div className="flex flex-row gap-6 mt-8">
+            <ShinyButton 
+              text="Join The Club"
+              onClick={() => window.open('https://forms.gle/your-form-link', '_blank')}
+              className="w-auto text-lg px-8 py-3"
+            />
+            <ShinyButton 
+              text="Learn More"
+              onClick={() => window.location.href = '/about'}
+              className="w-auto text-lg px-8 py-3"
+              speed={7}
+            />
+          </div> */}
         </div>
         
-        <div className="flex flex-row md:flex-col gap-4 mt-4 md:mt-0">
-          <ShinyButton 
-            text="Join The Club"
-            onClick={() => window.open('https://forms.gle/your-form-link', '_blank')}
-            className="w-full sm:w-auto"
-          />
-          <ShinyButton 
-            text="Learn More"
-            onClick={() => window.location.href = '/about'}
-            className="w-full sm:w-auto"
-            speed={7}
-          />
-        </div>
+        <ScrollIndicator scrollY={scrollY} />
       </div>
+
+      {/* About section */}
+      <AboutSection scrollY={scrollY} />
     </main>
   );
 }

@@ -3,7 +3,6 @@ import React from 'react';
 interface ShinyButtonProps {
     text: string;
     disabled?: boolean;
-    speed?: number;
     className?: string;
     onClick?: () => void;
     type?: 'button' | 'submit' | 'reset';
@@ -12,7 +11,6 @@ interface ShinyButtonProps {
 const ShinyButton: React.FC<ShinyButtonProps> = ({
     text,
     disabled = false,
-    speed = 5,
     className = '',
     onClick,
     type = 'button'
