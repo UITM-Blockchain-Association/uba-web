@@ -36,8 +36,8 @@ function NavHeader() {
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 bg-black/80 backdrop-blur-sm before:absolute before:inset-0 before:z-[-1] before:opacity-50 before:[background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')]">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="relative h-16 w-16 shrink-0 sm:h-20 sm:w-20">
+      <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8">
+        <Link href="/" className="relative h-12 w-12 shrink-0 sm:h-16 md:h-20 sm:w-16 md:w-20">
           <motion.div
             initial={{ opacity: 0, x: -100, scale: 0.5 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -65,7 +65,7 @@ function NavHeader() {
 
         {/* Desktop Menu */}
         <ul
-          className="relative hidden items-center justify-center space-x-4 md:flex"
+          className="relative hidden items-center justify-center space-x-2 md:space-x-4 md:flex"
           onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
         >
           <Tab href="/about" setPosition={setPosition}>About</Tab>
@@ -157,7 +157,7 @@ const Tab = ({ children, href, setPosition }: TabProps) => {
         href={href}
         target={isCommunity ? "_blank" : undefined}
         rel={isCommunity ? "noopener noreferrer" : undefined}
-        className={`block px-5 py-3 text-base font-semibold text-white/90 transition-colors hover:text-white md:text-lg ${
+        className={`block px-3 py-2 md:px-5 md:py-3 text-sm md:text-base font-semibold text-white/90 transition-colors hover:text-white ${
           isCommunity ? "border-2 border-blue-500 hover:border-blue-400" : ""
         }`}
       >
@@ -182,7 +182,7 @@ const MobileTab = ({ children, href }: TabProps) => {
         href={href}
         target={isCommunity ? "_blank" : undefined}
         rel={isCommunity ? "noopener noreferrer" : undefined}
-        className={`block w-full px-6 py-4 text-base font-semibold text-white/90 transition-all hover:bg-white/10 hover:text-white hover:pl-8 ${
+        className={`block w-full px-4 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-semibold text-white/90 transition-all hover:bg-white/10 hover:text-white hover:pl-6 sm:hover:pl-8 ${
           isCommunity ? "mx-2 my-2 border-2 border-blue-500 hover:border-blue-400" : ""
         }`}
       >
