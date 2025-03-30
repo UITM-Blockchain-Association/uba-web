@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import HeroBackground from "@/components/home/HeroBackground";
 import HeroTitle from "@/components/home/HeroTitle";
 import ScrollIndicator from "@/components/home/ScrollIndicator";
-import AboutSection from "@/components/home/AboutSection";
+import ScrollPage from "@/components/home/ScrollPage";
 
 // Main Home component
 export default function Home() {
@@ -48,7 +48,7 @@ export default function Home() {
       </div>
 
       {/* About section */}
-      <AboutSection scrollY={scrollY} />
+      <ScrollPage scrollY={scrollY} />
     </main>
   );
 }
