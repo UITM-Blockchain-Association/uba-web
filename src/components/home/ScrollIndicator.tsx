@@ -13,11 +13,11 @@ const ScrollIndicator = ({ scrollY }: ScrollProps) => (
       transition: 'opacity 0.3s ease-out, visibility 0.3s ease-out'
     }}
   >
-    <div className="text-white opacity-70">
+    <div className="text-white opacity-100">
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
+        width="34" 
+        height="34" 
         viewBox="0 0 24 24" 
         fill="none" 
         stroke="currentColor" 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import { Afacad, Montserrat } from "next/font/google";
+import { Afacad, Montserrat, Pixelify_Sans } from "next/font/google";
 import NavHeader from "@/components/core/nav-header";
 
 // import { Navbar } from "@/components/core/Navbar";
@@ -18,6 +18,13 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+const pixelifySans = Pixelify_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-pixelify-sans",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "UiTM Blockchain Association",
   description: "UBA",
@@ -29,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${afacad.variable} ${montserrat.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${afacad.variable} ${montserrat.variable} ${pixelifySans.variable}`}>
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"

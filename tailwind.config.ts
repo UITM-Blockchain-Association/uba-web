@@ -22,6 +22,7 @@ const config: Config = {
         sans: ["var(--font-afacad)"],
         "carter-one": ["var(--font-carter-one)"],
         montserrat: ["var(--font-montserrat)"],
+        "pixelify": ["var(--font-pixelify-sans)"],
       },
       colors: {
         border: "hsl(var(--border))",
