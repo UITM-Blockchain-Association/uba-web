@@ -6,6 +6,7 @@ interface ScrollProps {
 // Import the Pixelify Sans font directly in the component
 import { Pixelify_Sans } from "next/font/google";
 import { FocusCards } from "@/components/ui/focus-cards";
+import CountUp from "@/components/ui/CountUp";
 
 // Initialize the font
 const pixelifyFont = Pixelify_Sans({
@@ -18,6 +19,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
   // Calculate visibility threshold for animations
   const visibilityThreshold = 300;
   const isVisible = scrollY > visibilityThreshold;
+  const isCountupVisible = scrollY > 1100;
   
   return (
     <div 
@@ -101,6 +103,138 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
         </div>
         <div className="pt-4 pb-8">
           <FocusCards />
+        </div>
+      </div>
+
+      {/* Glass Card Section */}
+      <div className="mt-20 w-full flex justify-center">
+        <div 
+          className="backdrop-blur-md bg-white/10 rounded-xl p-8 shadow-2xl border border-white/20 max-w-4xl w-full transform hover:scale-[1.01] transition-all duration-500 relative overflow-hidden"
+          style={{
+            opacity: Math.max(0, Math.min((scrollY - 1000) * 0.003, 1)),
+            transform: `
+              perspective(1000px) 
+              rotateX(${Math.max(0, Math.min(20 - (scrollY - 1000) * 0.04, 20))}deg) 
+              scale(${Math.max(0.8, Math.min((scrollY - 1000) * 0.0005 + 0.8, 1))})
+              translateY(${Math.max(0, 50 - (scrollY - 1000) * 0.1)}px)
+            `,
+            transformOrigin: 'center',
+            filter: `blur(${Math.max(0, 2 - (scrollY - 1000) * 0.01)}px)`,
+            transition: 'transform 0.4s ease-out, opacity 0.5s ease-out, filter 0.5s ease-out'
+          }}
+        >
+          {/* Shimmer effect */}
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{
+              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
+              transform: isCountupVisible ? 
+                `translateX(${100 + Math.min((scrollY - 1100) * 0.1, 100)}%)` : 
+                'translateX(-100%)',
+              transition: 'transform 1.5s ease-in-out',
+              opacity: Math.min((scrollY - 1000) * 0.005, 1)
+            }}
+          />
+          
+          <div className="flex flex-col items-center relative z-10">
+            <div 
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
+              style={{
+                opacity: Math.max(0, Math.min((scrollY - 1100) * 0.004, 1)),
+                transform: `translateY(${Math.max(0, 30 - (scrollY - 1100) * 0.1)}px)`,
+                transition: 'transform 0.6s ease-out, opacity 0.6s ease-out',
+                transitionDelay: '0.2s'
+              }}
+            >
+              <div className="flex flex-col items-center">
+                <div 
+                  className="text-5xl font-bold text-white mb-2 flex items-baseline"
+                  style={{
+                    opacity: Math.max(0, Math.min((scrollY - 1150) * 0.004, 1)),
+                    transform: `translateY(${Math.max(0, 20 - (scrollY - 1150) * 0.1)}px)`,
+                    transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
+                    transitionDelay: '0.3s'
+                  }}
+                >
+                  <CountUp
+                    from={0}
+                    to={100}
+                    separator=","
+                    direction="up"
+                    duration={1}
+                    startWhen={isCountupVisible}
+                    className="count-up-text"
+                  />
+                  <span className="ml-1">+</span>
+                </div>
+                <p 
+                  className="text-gray-300 text-center"
+                  style={{
+                    opacity: Math.max(0, Math.min((scrollY - 1150) * 0.004, 1)),
+                    transition: 'opacity 0.5s ease-out',
+                    transitionDelay: '0.4s'
+                  }}
+                >
+                  Active Members
+                </p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div 
+                  className="text-5xl font-bold text-white mb-2 flex items-baseline"
+                  style={{
+                    opacity: Math.max(0, Math.min((scrollY - 1200) * 0.004, 1)),
+                    transform: `translateY(${Math.max(0, 20 - (scrollY - 1200) * 0.1)}px)`,
+                    transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
+                    transitionDelay: '0.5s'
+                  }}
+                >
+                  <CountUp
+                    from={0}
+                    to={25}
+                    separator=","
+                    direction="up"
+                    duration={1.5}
+                    startWhen={isCountupVisible}
+                    className="count-up-text"
+                  />
+                  <span className="ml-1">+</span>
+                </div>
+                <p 
+                  className="text-gray-300 text-center"
+                  style={{
+                    opacity: Math.max(0, Math.min((scrollY - 1200) * 0.004, 1)),
+                    transition: 'opacity 0.5s ease-out',
+                    transitionDelay: '0.6s'
+                  }}
+                >
+                  Events
+                </p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div 
+                  className="text-5xl font-bold text-white mb-2 flex items-baseline"
+                  style={{
+                    opacity: Math.max(0, Math.min((scrollY - 1250) * 0.004, 1)),
+                    transform: `translateY(${Math.max(0, 20 - (scrollY - 1250) * 0.1)}px)`,
+                    transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
+                    transitionDelay: '0.7s'
+                  }}
+                >
+                  7/2022
+                </div>
+                <p 
+                  className="text-gray-300 text-center"
+                  style={{
+                    opacity: Math.max(0, Math.min((scrollY - 1250) * 0.004, 1)),
+                    transition: 'opacity 0.5s ease-out',
+                    transitionDelay: '0.8s'
+                  }}
+                >
+                  Established
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

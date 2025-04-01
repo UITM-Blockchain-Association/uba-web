@@ -28,20 +28,7 @@ export default function Home() {
         <div className="w-full flex flex-col items-center text-center gap-8 md:gap-10">
           <HeroTitle />
           
-          {/* Call to action buttons - Commented out for now */}
-          {/* <div className="flex flex-row gap-6 mt-8">
-            <ShinyButton 
-              text="Join The Club"
-              onClick={() => window.open('https://forms.gle/your-form-link', '_blank')}
-              className="w-auto text-lg px-8 py-3"
-            />
-            <ShinyButton 
-              text="Learn More"
-              onClick={() => window.location.href = '/about'}
-              className="w-auto text-lg px-8 py-3"
-              speed={7}
-            />
-          </div> */}
+          
         </div>
         
         <ScrollIndicator scrollY={scrollY} />

@@ -77,10 +77,13 @@ export const Card = React.memo(
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "rounded-lg relative bg-black overflow-hidden transition-all duration-300 ease-out group",
+        "rounded-lg relative bg-black overflow-hidden transition-all duration-300 ease-out group grayscale-[80%] brightness-[0.2]",
         size,
-        hovered !== null && hovered !== index && "brightness-[0.3] grayscale"
+        hovered === index && "grayscale-0 brightness-100"
       )}
+      style={{
+        filter: hovered === index ? 'none' : 'blur(1.5px)'
+      }}
     >
       <div className="h-full w-full">
         <Image
@@ -88,10 +91,16 @@ export const Card = React.memo(
           alt={card.title}
           width={600}
           height={600}
-          className="object-cover w-full h-full brightness-[0.6] group-hover:brightness-90 group-hover:scale-105 transition-all duration-700"
+          className={cn(
+            "object-cover w-full h-full transition-all duration-700",
+            hovered === index && "scale-105"
+          )}
           unoptimized
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-70 group-hover:opacity-60 transition-opacity duration-300" />
+        <div className={cn(
+          "absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30 transition-opacity duration-300",
+          hovered === index ? "opacity-40" : "opacity-90"
+        )} />
       </div>
     </div>
   )
