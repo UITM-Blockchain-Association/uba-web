@@ -7,6 +7,7 @@ interface ScrollProps {
 import { Pixelify_Sans } from "next/font/google";
 import { FocusCards } from "@/components/ui/focus-cards";
 import CountUp from "@/components/ui/CountUp";
+import { LogosSlider } from "@/components/ui/logos-slider";
 
 // Initialize the font
 const pixelifyFont = Pixelify_Sans({
@@ -20,6 +21,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
   const visibilityThreshold = 300;
   const isVisible = scrollY > visibilityThreshold;
   const isCountupVisible = scrollY > 1100;
+  const isLogosVisible = scrollY > 1500;
   
   return (
     <div 
@@ -236,6 +238,24 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Partners Logos Slider - moved to end of page */}
+      <div 
+        className="mt-36 w-full max-w-6xl mx-auto mb-12" 
+        style={{
+          opacity: Math.max(0, Math.min((scrollY - 1500) * 0.003, 1)),
+          transform: `translateY(${Math.max(0, 50 - (scrollY - 1500) * 0.1)}px)`,
+          transition: 'transform 0.6s ease-out, opacity 0.6s ease-out'
+        }}
+      >
+        <div className="text-center mb-10">
+          <h3 className={`${pixelifyFont.className} text-3xl font-bold text-white mb-3`}>Our Partners</h3>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-6">
+            Collaborating with industry leaders in blockchain and technology
+          </p>
+        </div>
+        <LogosSlider />
       </div>
 
     </div>
