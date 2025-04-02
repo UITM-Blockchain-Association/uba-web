@@ -3,17 +3,10 @@ interface ScrollProps {
   scrollY: number;
 }
 
-// Import the Pixelify Sans font directly in the component
-import { Pixelify_Sans } from "next/font/google";
+// Import necessary components
 import { FocusCards } from "@/components/ui/focus-cards";
 import CountUp from "@/components/ui/CountUp";
 import { LogosSlider } from "@/components/ui/logos-slider";
-
-// Initialize the font
-const pixelifyFont = Pixelify_Sans({
-  subsets: ["latin"],
-  weight: ["700"],
-});
 
 // Scroll page component
 const ScrollPage = ({ scrollY }: ScrollProps) => {
@@ -50,7 +43,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
             />
           </div>
           
-          <h2 className={`${pixelifyFont.className} text-4xl md:text-5xl font-bold mb-8 text-white tracking-wide`}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white tracking-wide">
             About Us
           </h2>
           <p className="text-xl text-gray-300 text-justify">
@@ -61,8 +54,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
           <div className="mt-8 flex justify-center md:justify-start">
             <button
               onClick={() => window.open('https://forms.gle/your-form-link', '_blank')}
-              className={`
-                ${pixelifyFont.className}
+              className="
                 px-6 py-3 
                 text-lg font-semibold text-white 
                 bg-gradient-to-r from-blue-500 to-indigo-600
@@ -73,7 +65,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
                 active:translate-y-[1px]
                 transition-all duration-300
                 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50
-              `}
+              "
             >
               Join Us Now !
             </button>
@@ -98,7 +90,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
       {/* Masonry Gallery Section */}
       <div className="mt-32 w-full">
         <div className="text-center mb-10">
-          <h3 className={`${pixelifyFont.className} text-3xl font-bold text-white mb-3`}>UBA Highlights</h3>
+          <h3 className="text-3xl font-bold text-white mb-3">UBA Highlights</h3>
           <p className="text-gray-400 max-w-2xl mx-auto mb-6">
             Capturing our journey in blockchain innovation and community building
           </p>
@@ -250,7 +242,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
         }}
       >
         <div className="text-center mb-10">
-          <h3 className={`${pixelifyFont.className} text-3xl font-bold text-white mb-3`}>Our Partners</h3>
+          <h3 className="text-3xl font-bold text-white mb-3">Our Partners</h3>
           <p className="text-gray-400 max-w-2xl mx-auto mb-6">
             Collaborating with industry leaders in blockchain and technology
           </p>
