@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Afacad, Montserrat, Pixelify_Sans } from "next/font/google";
 import NavHeader from "@/components/core/nav-header";
+import Footer from "@/components/core/footer";
 
 // import { Navbar } from "@/components/core/Navbar";
 
@@ -37,7 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${afacad.variable} ${montserrat.variable} ${pixelifySans.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased text-white" style={{ background: 'radial-gradient(circle, #4759FF 0%, #000000 100%)' }}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -55,6 +56,7 @@ export default function RootLayout({
             <div className="animate-fade-in opacity-0">
               {children}
             </div>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

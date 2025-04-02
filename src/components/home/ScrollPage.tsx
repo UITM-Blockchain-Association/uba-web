@@ -25,7 +25,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
   
   return (
     <div 
-      className="w-full min-h-[80vh] bg-black px-4 sm:px-6 md:px-12 lg:px-24 pt-12 pb-16 flex flex-col"
+      className="w-full min-h-[80vh] px-4 sm:px-6 md:px-12 lg:px-24 pt-12 pb-16 flex flex-col"
       style={{
         transform: `translateY(${Math.max(0 - scrollY * 0.2, -50)}px)`,
         opacity: Math.min(scrollY * 0.008, 1),
@@ -75,7 +75,7 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
                 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50
               `}
             >
-              Join Us Now
+              Join Us Now !
             </button>
           </div>
         </div>
@@ -257,7 +257,6 @@ const ScrollPage = ({ scrollY }: ScrollProps) => {
         </div>
         <LogosSlider />
       </div>
-
     </div>
   );
 };

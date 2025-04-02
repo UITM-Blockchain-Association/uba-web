@@ -36,8 +36,8 @@ export function LogosSlider() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
-  const duration = 3; // Faster animation (reduced from 30)
-  const gap = 10; // Reduced gap between logos (was 48)
+  const duration = 3; // Faster animation 
+  const gap = 55; // Reduced gap between logos 
 
   useEffect(() => {
     const calculateWidth = () => {
